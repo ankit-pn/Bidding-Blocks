@@ -21,22 +21,39 @@ function Home() {
       setAuctions(resp.data.approvedAuction)
       setLoad(0)
 
+      var winner = []
       for(const y of resp.data.approvedAuction){
         if(!y['isProcessed'] && y['endDate'] > new Date().toISOString().slice(0,10)){
           for(const pid of y['productIds']){
-            await axios.post('https://bid-data-smart-contract.samualsaul.repl.co/',{
-              auctionId : '',         
+              const resp = await axios.post('https://product-api-six.vercel.app/getWinner',{
+                productId : pid
+              })
 
-            })
+              console.log(y , 'y')
+              
+              const params = {
+                productId : pid,
+                auctionId : y['auctionId'],
+                productName : resp.data['productName'],
+                soldBy : `${y['auctionHost'] ?  y['auctionHost'] : 'Anonymous'}`,
+                soldTo : resp.data['winnerName'],
+                soldAt : resp.data['winnerBid'],
+                user : pid+y['auctionId']
+              }
+
+              console.log(params)
+              await axios.post('https://bid-data-smart-contract.samualsaul.repl.co/postBidDetails',params)
+
+              // winner.push(resp.data)
           }
+          await axios.post('https://product-api-six.vercel.app/changeProcessedStatus',{
+            auctionId : y['auctionId']
+          })
         }
       }
-
-
     }
     getAuc()
-    
-    // await setAuctions(resp.data)
+  
     
   }, [])
   
