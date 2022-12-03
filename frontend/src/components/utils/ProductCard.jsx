@@ -97,7 +97,7 @@ function ProductCard(props) {
             <h2 style={{display : 'inline-block' , margin : '10px 20px', color:'white'}}>{props.name}</h2>
             <Group style={{margin : '10px 20px 2px 20px'}}>
                 <Text size='lg' style={{color:'white'}}>₹ {props.price} </Text>
-                <Button style={{backgroundColor:'#b64d57'}} onClick={()=>setOpened(true)} disabled={uid}><Text style={{color:'white'}}>Bid</Text></Button>
+                {!localStorage.getItem('admin') && <Button style={{backgroundColor:'#b64d57'}} onClick={()=>setOpened(true)} disabled={uid}><Text style={{color:'white'}}>Bid</Text></Button>}
             </Group>
             </Box>  
 
@@ -107,7 +107,7 @@ function ProductCard(props) {
         <Modal  
         opened={opened}
         onClose={() => setOpened(false)}
-        title="Make Your Bid!!"
+        title="Make Your Bid!!" 
       >
         <Box>
             <NumberInput label="Your Bid" required defaultValue={Number(props.price)} value={bidValue} onChange={setBidValue}/>

@@ -73,6 +73,7 @@ function NavBar() {
   const [log, setLog] = useState(localStorage.getItem('users') ? true : false);
 
 
+
   return (
     <Box style={{
       backgroundColor : '#4db6ab',
@@ -83,9 +84,9 @@ function NavBar() {
       top : 0,
       left : 0,
       zIndex : 100,
-      minHeight : '7vh'
+      minHeight : '7vh',
+      display : `${window.location.pathname.includes('/admin') ? 'none' : 'block'}`
     }}>
-
       <Modal
         opened={opened}
         onClose={() => setOpened(false)}

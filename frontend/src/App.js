@@ -9,8 +9,9 @@ import Transactions from './components/routed/Transactions';
 import Auctions from './components/routed/Auctions';
 import CreateAuction from './components/routed/CreateAuction';
 import Auction from './components/routed/Auction';
-import Login from './admin/Login';
- 
+import { AuthenticationImage } from './admin/Adminpanel';
+import Login from './admin/Login'; 
+import AdminPending from './admin/AdminPending';
 
 function App() {
   return <>
@@ -21,8 +22,9 @@ function App() {
             <Route exact path='/auctions' element={<Auctions/>}  />
             <Route path='/auctions/:aid' element={<Auction/>}  />
             <Route path='/createAuc' element={<CreateAuction/>}  />
-            <Route path='/admin' element={<Login/>}  />
-            <Route path='*' element={<Error/>}  />
+            <Route exact path='/admin' element={<Login/>} />
+            <Route path='/admin/pending' element={<AdminPending/>}/>
+            <Route path='/admin/auctions/:aid' element={<Auction/>}/>
           </Routes>
         <Box  m={0} sx={{ width : '100%' , display : 'block' , minHeight : '9vh'}} >
           <Footer/>

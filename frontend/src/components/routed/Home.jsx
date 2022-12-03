@@ -37,7 +37,7 @@ function Home() {
       
       {<SimpleGrid cols={2}>
       {auctions.map((ele)=>{console.log(ele , 'ELE')
-      return <AuctionDetailCard key={ele['auctionId']} id={ele['auctionId']} host={ele['auctionHost']} status={ele['Status']} name={ele['auctionName']} desc={ele['auctionDescription']} endDate={ele['endDate']}  />})}
+      return <AuctionDetailCard type={1} key={ele['auctionId']} id={ele['auctionId']} host={ele['auctionHost']} status={ele['Status']} name={ele['auctionName']} desc={ele['auctionDescription']} endDate={ele['endDate']}  />})}
       </SimpleGrid>}
     </Box>
   )

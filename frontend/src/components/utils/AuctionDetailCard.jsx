@@ -17,7 +17,9 @@ function AuctionDetailCard(props) {
             <Badge size='lg' variant='filled' className="card__host" style={{backgroundColor:'#4db6ab'}}><Text style={{color:'black'}}>{props.host}</Text></Badge>
             <Badge size='lg' className='card__status'><Text style={{color:'black'}}>{props.status}</Text></Badge>
             <Badge size='lg' className="card__category"><Text style={{color:'black'}}>End: {props.endDate}</Text></Badge>
-            <Button style={{backgroundColor : '#b64d57' , borderRadius : '20px'}} onClick={()=>navigate(`/auctions/${props.id}`)}><Text style={{color:'black'}}>Show Details</Text></Button>
+            {props.type == '1' && <Button style={{backgroundColor : '#b64d57' , borderRadius : '20px'}} onClick={()=>navigate(`/auctions/${props.id}`)}><Text style={{color:'black'}}>Show Details</Text></Button>}
+            {props.type == '2' && <Button style={{backgroundColor : '#b64d57' , borderRadius : '20px'}} onClick={()=>navigate(`/admin/auctions/${props.id}`)}><Text style={{color:'black'}}>Show Details</Text></Button>}
+
           </Group>
     </Box>
   )
