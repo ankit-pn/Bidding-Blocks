@@ -3,16 +3,17 @@
     color : 'white'
 }
 .card {
+    color : 'white';
     overflow: hidden;
-    box-shadow: 0 2px 4px #e1e5ee;
+    box-shadow: 0 1px 4px #C5DCDA;
     border-radius: 0.3rem;
     transition: transform 200ms ease-in;
-    background-color: rgb(7, 56, 39);
+    background-color: #00867c;
     max-width: 95%;
-    
 }
 
 .title{
+    color : 'white';
     text-align: center;
     text-decoration: underline;
 }
@@ -21,7 +22,6 @@
 }
 .card__desc {
     padding: 1px 20px;
-
 }
 .card__info {
     display: flex;
@@ -38,12 +38,12 @@
     border-radius: 2rem;
     padding: 5px 15px;
     margin: 2px 0px 2px 0px;
-    background-color: #0B5226;
+    background-color: #4db6ab;
 }
 .card__category {
     border-radius: 2rem;
     padding: 5px 15px;
     margin: 2px 0px 2px 0px;
-    background-color: #0B5226;
+    background-color: #4db6ab;
 }
 
