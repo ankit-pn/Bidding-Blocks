@@ -19,21 +19,27 @@ function Auction() {
             auctionId : params.aid
         })
         console.log(resp.data.auctionDetails[0]['productIds'])
-        setLoading(false)
+        
         setData(resp.data.auctionDetails[0])
 
         for(const x of resp.data.auctionDetails[0]['productIds']){
-            const res = axios.post('',{
-
+            const res = await axios.post('https://product-api-six.vercel.app/getProductDetailByProductId',{
+                productId : x
             })
-            console.log(res)
-            // setPdata([...pdata , res] )
+            console.log(res.data.productDetails[0] , 'prodDEtail')
+            setPdata(pdata => [...pdata ,res.data.productDetails[0] ])
+            
         }
-
-
+        setLoading(false)
     }
 
     fetchDetails()
+    console.log(pdata , 'pdata')
+
+    return ()=>{
+        setPdata([])
+        setData('')
+    }
     
 
   },[])
@@ -42,13 +48,14 @@ function Auction() {
 if(loading){
     return (<div><p>Loading...</p></div>)
 }
-console.log(data , 'data')
+console.log( pdata , 'data')
     return (
-    <Box style={{backgroundColor : '#C7D6D4' , padding : '20px' }}>
+    <Box style={{backgroundColor : '#C7D6D4' , padding : '20px' , height : '100%' }}>
         <h1 style={{color : '#00867c' , textAlign : 'center'}}>{data['auctionName']}</h1>
-        <Text p='md' color='#000D0C'>{data['auctionDescription']}</Text>
-        <Text color='#000D0C'p='md' style={{textAlign:'center'}} variant='filled'>Ends At : {data['endDate']}</Text>
-        <ProductCard name='NANNA' price='34' desc='lorem scvbsvb'  />
+        <Text p='md' color='#000d0c'>{data['auctionDescription']}</Text>
+        <Text color='#000d0c'p='md' style={{textAlign:'center'}} variant='filled'>Ends At : {data['endDate']}</Text>
+        {pdata.map((ele)=><ProductCard name={ele['productName']} price={ele['basePrice']} desc={ele['productDescription']}  />)}
+        {/* <ProductCard name='NANNA' price='34' desc='lorem scvbsvb'  /> */}
     </Box>
   )
 }
