@@ -32,8 +32,8 @@ function Home() {
     return (<div style={{backgroundColor : 'blue'}}><p >Loading...</p></div>)
   }
   return (
-    <Box p='md' m={0} style={{backgroundColor : '#04293a' , color : '#ecb365' , height : '200vh'}}>
-      <Title order={1} style={{textAlign:'center'}}>Auctions</Title> 
+    <Box p='md' m={0} style={{backgroundColor : '#C7D6D4' , color : '#ecb365' , height : '200vh'}}>
+      <Title order={1} style={{textAlign:'center', color:'black'}}>Auctions</Title> 
       
       {<SimpleGrid cols={2}>
       {auctions.map((ele)=>{console.log(ele , 'ELE')
