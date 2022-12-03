@@ -1,4 +1,4 @@
-import { Badge, Box, Button, Center, Group, Text, Title } from '@mantine/core'
+import { Badge, Box, Button, Center, Group, SimpleGrid, Text, Title } from '@mantine/core'
 import axios from 'axios'
 import React from 'react'
 import { useEffect } from 'react'
@@ -90,7 +90,7 @@ const st = (data['approveStatus']) ? 'Accepted' : 'Under Verification'
         <Text p='md' color='#000d0c'>{data['auctionDescription']}</Text>
         <Text color='#000d0c'p='md' style={{textAlign:'center'}} variant='filled'>Ends At : {data['endDate']}</Text>
         {admin && <Center><Button onClick={()=>{changeStatus()}} color='green'>Change Status</Button><Title mx='md' order={2} color='green'>{st} </Title> </Center>}
-        {pdata.map((ele)=><ProductCard bids={ele['totalBid']} aid={ele['auctionId']} pid={ele['productId']} name={ele['productName']} price={ele['basePrice']} desc={ele['productDescription']}  />)}
+        <SimpleGrid cols={3}>{pdata.map((ele)=><ProductCard bids={ele['totalBid']} aid={ele['auctionId']} pid={ele['productId']} name={ele['productName']} price={ele['basePrice']} desc={ele['productDescription']}  />)}</SimpleGrid>
         {/* <ProductCard name='NANNA' price='34' desc='lorem scvbsvb'  /> */}
     </Box>
   )

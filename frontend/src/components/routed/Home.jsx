@@ -17,9 +17,20 @@ function Home() {
       const resp = await axios.post('https://product-api-six.vercel.app/getAuctions',{
       apiId : 'user'
     })
-      console.log(resp.data.approvedAuction)
+      console.log(resp.data.approvedAuction , 'neww')
       setAuctions(resp.data.approvedAuction)
       setLoad(0)
+
+      for(const y of resp.data.approvedAuction){
+        if(!y['isProcessed'] && y['endDate'] > new Date().toISOString().slice(0,10)){
+          await axios.post('https://bid-data-smart-contract.samualsaul.repl.co/postBidDetails',{
+            auctionId : '',         
+
+          })
+        }
+      }
+
+
     }
     getAuc()
     
@@ -35,7 +46,7 @@ function Home() {
     <Box p='md' m={0} style={{backgroundColor : '#C7D6D4' , color : '#ecb365' , minHeight : '90vh'}}>
       <Title order={1} style={{textAlign:'center', color:'black'}}>Auctions</Title> 
       
-      {<SimpleGrid cols={2}>
+      {<SimpleGrid cols={3}>
       {auctions.map((ele)=>{console.log(ele , 'ELE')
       return <AuctionDetailCard type={1} key={ele['auctionId']} id={ele['auctionId']} host={ele['auctionHost']} status={ele['Status']} name={ele['auctionName']} desc={ele['auctionDescription']} endDate={ele['endDate']}  />})}
       </SimpleGrid>}

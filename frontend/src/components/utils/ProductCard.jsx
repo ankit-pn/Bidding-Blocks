@@ -91,7 +91,7 @@ function ProductCard(props) {
 
 
   return (
-    <Box style={{backgroundColor : '#00867c', justifyItems  : 'flex-end' , borderRadius : '10px' , margin : '5px 10px'}}>
+    <Box style={{backgroundColor : '#00867c', justifyItems  : 'flex-end' , borderRadius : '10px' , margin : '10px 10px' , padding : '10px 10px'}}>
 
             <Box style={{display : 'flex' , flexDirection :'row' , justifyContent : 'space-between'}}>
             <h2 style={{display : 'inline-block' , margin : '10px 20px', color:'white'}}>{props.name}</h2>
