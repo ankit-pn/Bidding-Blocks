@@ -59,7 +59,7 @@ function Home() {
   
 
   if(load){
-    return (<div style={{backgroundColor : '#89B0AC'}}><p >Loading...</p></div>)
+    return (<center><div style={{backgroundColor : '#821d2e', margin: '5% 30%', padding : '20px 30px'}}><h2 style={{color : 'white'}}>Loading...</h2></div></center>)
   }
   return (
     <Box p='md' m={0} style={{backgroundColor : '#C7D6D4' , color : '#ecb365' , minHeight : '90vh'}}>

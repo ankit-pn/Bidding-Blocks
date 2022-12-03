@@ -24,7 +24,7 @@ function Auctions() {
   },[])
   
   if(loading){
-    return <p style={{backgroundColor : 'red'}}>Loading...</p>
+    return (<center><div style={{backgroundColor : '#821d2e', margin: '5% 30%', padding : '20px 30px'}}><h2 style={{color : 'white'}}>Loading...</h2></div></center>)
   }
 
   return (

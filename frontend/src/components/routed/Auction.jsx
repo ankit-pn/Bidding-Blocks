@@ -79,7 +79,7 @@ function Auction() {
 
 //   console.log(params)
 if(loading){
-    return (<div><p>Loading...</p></div>)
+    return (<center><div style={{backgroundColor : '#821d2e', margin: '5% 30%', padding : '20px 30px'}}><h2 style={{color : 'white'}}>Loading...</h2></div></center>)
 }
 console.log( data['approveStatus'] , 'data')
 
