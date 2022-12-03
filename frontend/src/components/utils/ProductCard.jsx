@@ -62,7 +62,7 @@ function ProductCard(props) {
 
 
   return (
-    <Box style={{backgroundColor : '#00867c', justifyItems  : 'flex-end' , borderRadius : '10px' , margin : '0px 10px'}}>
+    <Box style={{backgroundColor : '#00867c', justifyItems  : 'flex-end' , borderRadius : '10px' , margin : '5px 10px'}}>
 
             <Box style={{display : 'flex' , flexDirection :'row' , justifyContent : 'space-between'}}>
             <h2 style={{display : 'inline-block' , margin : '10px 20px', color:'white'}}>{props.name}</h2>
@@ -72,7 +72,7 @@ function ProductCard(props) {
             </Group>
             </Box>  
 
-        <Text mx='md' style={{color:'white'}}>{props.desc}</Text>
+        <Text mx='md' style={{color:'white', margin:''}}>{props.desc}</Text>
 
 
         <Modal  
