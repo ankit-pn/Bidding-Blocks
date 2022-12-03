@@ -32,12 +32,12 @@ function Home() {
     return (<div style={{backgroundColor : 'blue'}}><p >Loading...</p></div>)
   }
   return (
-    <Box p='md' m={0} style={{backgroundColor : '#C7D6D4' , color : '#ecb365' , height : '200vh'}}>
+    <Box p='md' m={0} style={{backgroundColor : '#C7D6D4' , color : '#ecb365' , minHeight : '90vh'}}>
       <Title order={1} style={{textAlign:'center', color:'black'}}>Auctions</Title> 
       
       {<SimpleGrid cols={2}>
       {auctions.map((ele)=>{console.log(ele , 'ELE')
-      return <AuctionDetailCard key={ele['auctionId']} id={ele['auctionId']} host={`ele['AuctionHost']`} status={ele['Status']} name={ele['auctionName']} desc={ele['auctionDescription']} endDate={ele['endDate']}  />})}
+      return <AuctionDetailCard key={ele['auctionId']} id={ele['auctionId']} host={ele['auctionHost']} status={ele['Status']} name={ele['auctionName']} desc={ele['auctionDescription']} endDate={ele['endDate']}  />})}
       </SimpleGrid>}
     </Box>
   )

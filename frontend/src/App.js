@@ -24,7 +24,7 @@ function App() {
             <Route path='/admin' element={<Login/>}  />
             <Route path='*' element={<Error/>}  />
           </Routes>
-        <Box mb={'md'} sx={{position : 'static' , width : '100%' , display : 'block'}} >
+        <Box  m={0} sx={{ width : '100%' , display : 'block' , minHeight : '9vh'}} >
           <Footer/>
         </Box>
       </>

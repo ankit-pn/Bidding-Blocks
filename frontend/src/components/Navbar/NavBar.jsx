@@ -82,8 +82,8 @@ function NavBar() {
       position : 'sticky' , 
       top : 0,
       left : 0,
-      zIndex : 100
-      
+      zIndex : 100,
+      minHeight : '7vh'
     }}>
 
       <Modal
