@@ -6,14 +6,14 @@
     color : 'white';
     overflow: hidden;
     box-shadow: 0 1px 4px #C5DCDA;
-    border-radius: 20px;
+    border-radius: 12px;
     transition: transform 200ms ease-in;
     background-color: #00867c;
     max-width: 95%;
 }
 
 .title{
-    color : 'white';
+    color : 'black';
     text-align: center;
     text-decoration: underline;
 }

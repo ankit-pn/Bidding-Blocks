@@ -8,7 +8,7 @@ function AuctionDetailCard(props) {
   const navigate = useNavigate()
   return (
       <Box className="card" style={{margin : '20px', color:'white'}}>
-        <h2 className='title' style={{color:'white'}}>{props.name}</h2>
+        <h2 className='title' style={{color:'black'}}>{props.name}</h2>
         <div className="card__desc" color='white'>
           <p><Text style={{color:'white'}}>{props.desc}</Text></p>
         </div>

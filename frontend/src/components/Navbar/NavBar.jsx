@@ -21,7 +21,7 @@ function NavBar() {
     {text : 'Transactions' , to : '/txn' },
     {text : 'Auctions' , to : '/auctions' },
     {text : 'Host Auction' , to : '/createAuc' },
-  ] : [{text : 'Home' , to : '/' },]
+  ] : [{text : 'Home' , to : '/' },{text : 'Recent Transactions' , to : '/txn'}]
 
   var st1 = {
     backgroundColor : 'green',
@@ -119,7 +119,7 @@ function NavBar() {
       <Flex justify="space-between" >
         <Logo />
 
-        {data.map((ele)=><Btn text={ele.text} key={ele.to} to={ele.to} />) }
+        <Group>{data.map((ele)=><Btn text={ele.text} key={ele.to} to={ele.to} />) }</Group>
         {!localStorage.getItem('user') ?  <Button style={{backgroundColor:'#821d2e'}} onClick={()=>setOpened(true)}><Text style={{color:'white'}}>Login</Text></Button> : <Button style={{backgroundColor:'#821d2e'}} onClick={()=>{handleLogout()}}><Text style={{color:'white'}}>Logout</Text></Button>}
       </Flex>
     </Box>

@@ -23,10 +23,12 @@ function Home() {
 
       for(const y of resp.data.approvedAuction){
         if(!y['isProcessed'] && y['endDate'] > new Date().toISOString().slice(0,10)){
-          await axios.post('https://bid-data-smart-contract.samualsaul.repl.co/postBidDetails',{
-            auctionId : '',         
+          for(const pid of y['productIds']){
+            await axios.post('https://bid-data-smart-contract.samualsaul.repl.co/',{
+              auctionId : '',         
 
-          })
+            })
+          }
         }
       }
 

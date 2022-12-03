@@ -94,14 +94,14 @@ function ProductCard(props) {
     <Box style={{backgroundColor : '#00867c', justifyItems  : 'flex-end' , borderRadius : '10px' , margin : '10px 10px' , padding : '10px 10px'}}>
 
             <Box style={{display : 'flex' , flexDirection :'row' , justifyContent : 'space-between'}}>
-            <h2 style={{display : 'inline-block' , margin : '10px 20px', color:'white'}}>{props.name}</h2>
+            <h2 style={{display : 'inline-block' , margin : '10px 15px', color:'black'}}>{props.name}</h2>
             <Group style={{margin : '10px 20px 2px 20px'}}>
                 <Text size='lg' style={{color:'white'}}>₹ {props.price} </Text>
                 {!localStorage.getItem('admin') && <Button style={{backgroundColor:'#b64d57'}} onClick={()=>setOpened(true)} disabled={uid}><Text style={{color:'white'}}>Bid</Text></Button>}
             </Group>
             </Box>  
 
-        <Text mx='md' style={{color:'white', margin:''}}>{props.desc}</Text>
+        <Text mx='md' style={{color:'white', marginBottom:'20px'}}>{props.desc}</Text>
 
         {msg.length > 0 && <Affix position={{ bottom: 20, right: 20 }}><Notification icon={<IconX size={18} />} color="red"><Text>{msg}</Text></Notification></Affix>}
         <Modal  
