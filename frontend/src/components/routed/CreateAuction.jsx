@@ -76,33 +76,33 @@ function CreateAuction() {
 
 
     return (
-        <Box p='md' m={0} style={{backgroundColor : '#04293a' , color : '#ecb365' , height : '100vh'}}>
-            <Group m='md' style={{marginLeft : '20%', border : '1px solid red' , padding : '10px' , display : 'inline-block' , borderRadius : '20px' }}>
+        <Box p='md' m={0} style={{backgroundColor : '#C7D6D4' , color : '#ecb365' , height : '100vh'}}>
+            <Group m='md' style={{backgroundColor : '#00867c',marginLeft : '20%', border : '1px #b64d57' , padding : '5px' , display : 'inline-block' , borderRadius : '20px'}}>
                 <Text color='#ecb365' size='lg' m='sm' style={{display : 'inline-block'}}>
                     Auction Name :</Text>
-                <TextInput value={Name} onChange={(event) => setName(event.target.value)} style={{display : 'inline-block'}}/>
+                <TextInput value={Name} onChange={(event) => setName(event.target.value)} style={{display : 'inline-block', width : '19vw'}}/>
             </Group>
 
-            <Group m='md' style={{border : '1px solid red' , padding : '10px' , display : 'inline-block' , borderRadius : '20px' }}>
+            <Group m='md' style={{backgroundColor : '#00867c',border : '1px #b64d57' , marginLeft : '1.7%', padding : '5px' , display : 'inline-block' , borderRadius : '20px'}}>
                 <Text color='#ecb365' size='lg' m='sm' style={{display : 'inline-block'}}>
                     Auction Host :</Text>
-                <TextInput value={Host} onChange={(event) => setHost(event.target.value)} style={{display : 'inline-block'}}/>
+                <TextInput value={Host} onChange={(event) => setHost(event.target.value)} style={{display : 'inline-block', width : '19vw'}}/>
             </Group>
 
-            <Group m='md' style={{marginLeft : '20%', border : '1px solid red' , padding : '10px', minWidth : '60%' , display : 'inline-block' , borderRadius : '20px' }}>
+            <Group m='md' style={{backgroundColor : '#00867c', marginLeft : '20%', border : '1px #b64d57' , padding : '5px', minWidth : '60%' , display : 'inline-block' , borderRadius : '20px' }}>
                 <Text color='#ecb365' size='lg' m='sm' style={{display : 'inline-block'}}>
                    Pick Date :</Text>
                 <DateRangePicker value={valueDate} onChange={setValueDate} style={{display : 'inline-block' , minWidth : '60%'}}/>
             </Group>
 
-            <Group m='md' style={{width:'60%', marginLeft : '20%', border : '1px solid red' , padding : '10px' , display : 'inline-block' , borderRadius : '20px' }}>
+            <Group m='md' style={{backgroundColor : '#00867c', width:'60%', marginLeft : '20%', border : '1px #b64d57' , padding : '9px' , display : 'inline-block' , borderRadius : '20px' }}>
                 <Text color='#ecb365' size='lg'style={{display : 'inline-block'}}>
                     Description :</Text>
                 <Textarea value={Desc} onChange={(event) => setDesc(event.target.value)} autosize style={{ minWidth : '80%'}}/>
             </Group>
             
             <Box style={{display : 'block' , textAlign : 'center'}} p='md'>
-                <Button onClick={()=>setOpened(true)} style={{backgroundColor : '#08393a'}}><Text color = '#ecb365'>Add New Product</Text></Button>
+                <Button onClick={()=>setOpened(true)} style={{backgroundColor : '#ec7c84'}}><Text color = 'black'>Add New Product</Text></Button>
             </Box>
 
             <Modal  
@@ -120,15 +120,18 @@ function CreateAuction() {
                     </Center>
                 </div>
             </Modal>
-            {localProd.map((ele)=><Box p='md' style={{backgroundColor : 'yellow'}}>
-                <h2>{ele.productName}</h2>
-                <Text>{ele.productDescription}</Text>
-                <Text style={{display:'inline-block'}}>Base Price : {ele.basePrice}</Text>
-                <Button onClick={()=>{localDel(ele.index)}} style={{display:'inline-block' , float:'right'}}>Delete</Button>
-
-            </Box>)}
+            {localProd.map((ele)=><div display="flex-box" flex-direction="row" justify-content="space-between" p='md' style={{backgroundColor : '#4db6ab', borderRadius : '2rem'}}>
+                <Group display="flex-box" flex-direction="row" justify-content="space-between">
+                    <Box>
+                        <h2><Text color="black">{ele.productName}</Text></h2>
+                        <Text color='black'>{ele.productDescription}</Text>                                                      
+                    </Box>
+                    <Text style={{color : 'black'}}>Base Price : {ele.basePrice}</Text>
+                    <Button onClick={()=>{localDel(ele.index)}} style={{display:'inline-block'}}>Delete</Button>
+                </Group>
+            </div>)}
             <div style={{textAlign : 'center'}}>
-                <Button style={{marginBottom : '50px'}} onClick={()=>CreateAuction()}><Text style={{color:'white'}}>Create Auction</Text></Button>
+                <Button style={{backgroundColor : '#821d2e' ,marginBottom : '50px'}} onClick={()=>CreateAuction()}><Text style={{color:'white'}}>Create Auction</Text></Button>
             </div>
         </Box>
       )
