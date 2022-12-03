@@ -1,7 +1,10 @@
-import { Box, Button, Group, Modal, NumberInput, Text, TextInput } from '@mantine/core'
+import { Affix, Box, Button, Group, Modal, NumberInput, Text, TextInput } from '@mantine/core'
+import { Notification } from '@mantine/core';
 import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
+import { IconX } from '@tabler/icons';
+import { Icon } from '@iconify/react';
 
 function ProductCard(props) {
 
@@ -10,6 +13,7 @@ function ProductCard(props) {
     const [uid , setuid] = useState(!localStorage.getItem('user') ? true : false)
     const [connected , setConnected] = useState(false)
     const [bidValue , setBidValue] = useState(Number(props.price))
+    const [msg , setMsg] = useState('')
 
 
     const handleConnect = async () =>{
@@ -24,16 +28,38 @@ function ProductCard(props) {
               }
           }
           else{
-              console.log('NO METAMASK EXTENSION')
+            setMsg('Please install Metamask extension to use this Dapp')
+            setTimeout(() => {
+              setMsg('')
+            }, 4000);
           }
       }
       else{
+        setMsg('Disconnected Successfully!!!')
         setConnected(null)
+
+        setTimeout(() => {
+          setMsg('')
+        }, 3000);
       }
   }
 
     const handleBid = async()=>{
         console.log('Handle BId' , bidValue)
+
+        for (const x of props.bids){
+          if(x[0] == localStorage.getItem('user')){
+            setMsg('You can only bid once per product of any particular auction to ensure fair practices')
+            setTimeout(() => {
+              setMsg('')
+              
+            }, 5000);
+            return;
+
+          }
+        }
+
+
         if(window.ethereum.selectedAddress){
           const params = [
             {
@@ -49,14 +75,17 @@ function ProductCard(props) {
             userId : localStorage.getItem('user'),
             auctionId: props.aid,
             productId : props.pid,
-            transactionId : resp
-
+            transactionId : resp,
+            bid : bidValue
           })
-          console.log(res)
+          setOpened(0)
 
         }
         else{
-          console.log('Not Installed')
+          setMsg('Some error occured!')
+          setTimeout(() => {
+            setMsg('')
+          }, 3000);
         }
     }
 
@@ -74,7 +103,7 @@ function ProductCard(props) {
 
         <Text mx='md' style={{color:'white', margin:''}}>{props.desc}</Text>
 
-
+        {msg.length > 0 && <Affix position={{ bottom: 20, right: 20 }}><Notification icon={<IconX size={18} />} color="red"><Text>{msg}</Text></Notification></Affix>}
         <Modal  
         opened={opened}
         onClose={() => setOpened(false)}
@@ -83,8 +112,8 @@ function ProductCard(props) {
         <Box>
             <NumberInput label="Your Bid" required defaultValue={Number(props.price)} value={bidValue} onChange={setBidValue}/>
             <div style={{textAlign : 'center' , color:'white'}}>
-                <Button  ><Text color='white' onClick={()=>{handleConnect()}}>{connected ? 'Disconnect' : 'Connect to MetaMask Wallet'} </Text></Button>
-                <Button m='md' disabled={!connected}><Text color='white' onClick={()=>{handleBid()}}>Submit & Pay </Text></Button>
+                <Button  ><Text compact color='white' mr='sm' onClick={()=>{handleConnect()}}>{connected ? 'Disconnect' : 'Connect to MetaMask Wallet'} </Text><Icon icon="logos:metamask-icon" inline={true} /></Button>
+                <Button m='md' disabled={!connected}><Text color='white' onClick={()=>{handleBid()}}>Pay </Text></Button>
             </div>
         </Box>
       </Modal>

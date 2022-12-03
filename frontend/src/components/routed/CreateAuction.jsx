@@ -28,20 +28,20 @@ function CreateAuction() {
                 productArray : localProd
 
             }
-            // const resp = await axios.post('https://product-api-six.vercel.app/addAuction', payload)
-            // if(resp.status == 201){
-            //     setName('')
-            //     setDesc('')
-            //     setHost('')
-            //     setValueN('')
-            //     setValueD('')
-            //     // Pref.current.value = ''
-            //     setValueDate([new Date(),new Date()])
-            //     setLocalProd([])
-            // }
+            const resp = await axios.post('https://product-api-six.vercel.app/addAuction', payload)
+            if(resp.status == 201){
+                setName('')
+                setDesc('')
+                setHost('')
+                setValueN('')
+                setValueD('')
+                // Pref.current.value = ''
+                setValueDate([new Date(),new Date()])
+                setLocalProd([])
+            }
             
-            // console.log(resp , 'payload')
-            console.log(payload)
+            console.log(resp , 'payload')
+            // console.log(payload)
 
     }
 
