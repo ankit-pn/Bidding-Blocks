@@ -9,7 +9,7 @@ import Transactions from './components/routed/Transactions';
 import Auctions from './components/routed/Auctions';
 import CreateAuction from './components/routed/CreateAuction';
 import Auction from './components/routed/Auction';
-
+import Login from './admin/Login';
  
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
             <Route exact path='/auctions' element={<Auctions/>}  />
             <Route path='/auctions/:aid' element={<Auction/>}  />
             <Route path='/createAuc' element={<CreateAuction/>}  />
+            <Route path='/admin' element={<Login/>}  />
             <Route path='*' element={<Error/>}  />
           </Routes>
         <Box mb={'md'} sx={{position : 'static' , width : '100%' , display : 'block'}} >
