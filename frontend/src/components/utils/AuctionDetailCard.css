@@ -1,0 +1,49 @@
+/* Border radius */
+*{
+    color : 'white'
+}
+.card {
+    overflow: hidden;
+    box-shadow: 0 2px 4px #e1e5ee;
+    border-radius: 0.3rem;
+    transition: transform 200ms ease-in;
+    background-color: rgb(7, 56, 39);
+    max-width: 95%;
+    
+}
+
+.title{
+    text-align: center;
+    text-decoration: underline;
+}
+.card__name {
+    margin: 10px 20px 2px 20px; 
+}
+.card__desc {
+    padding: 1px 20px;
+
+}
+.card__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2px 20px 2px 20px;
+}
+
+.card__host {
+    padding: 2px 20px 2px 20px;
+    margin: 2px 0px 2px 0px;
+}
+.card__status {
+    border-radius: 2rem;
+    padding: 5px 15px;
+    margin: 2px 0px 2px 0px;
+    background-color: #0B5226;
+}
+.card__category {
+    border-radius: 2rem;
+    padding: 5px 15px;
+    margin: 2px 0px 2px 0px;
+    background-color: #0B5226;
+}
+

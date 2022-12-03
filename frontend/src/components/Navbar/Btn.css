@@ -1,0 +1,20 @@
+.active{
+    color : white;
+    text-decoration : none;
+    font-weight : 800;
+    background-color : rgba(10, 99, 34, 0.7);
+    padding : 10px 10px;
+    border-radius : 20px;
+}
+.inactive{
+    color : rgb(169, 163, 163);
+    text-decoration : none;
+    font-weight : 800;
+    padding : 0% 0%;
+    border-radius : 20px;
+}
+
+.inactive:hover{
+    font-size: 1.2rem;
+    color: #035e6c;
+}
