@@ -1,4 +1,4 @@
-import { Box, Button, Center, Group, Modal, NumberInput, Text, Textarea, TextInput  } from '@mantine/core'
+import { Box, Button, Center, Grid, Group, Modal, NumberInput, Stack, Text, Textarea, TextInput  } from '@mantine/core'
 import React from 'react'
 import { useState } from 'react'
 import { DatePicker, DateRangePicker } from '@mantine/dates';
@@ -120,16 +120,22 @@ function CreateAuction() {
                     </Center>
                 </div>
             </Modal>
-            {localProd.map((ele)=><div display="flex-box" flex-direction="row" justify-content="space-between" p='md' style={{backgroundColor : '#4db6ab', borderRadius : '2rem'}}>
-                <Group display="flex-box" flex-direction="row" justify-content="space-between">
+            {localProd.map((ele)=><Box>
+                <Grid justify='space-between'>
                     <Box>
                         <h2><Text color="black">{ele.productName}</Text></h2>
-                        <Text color='black'>{ele.productDescription}</Text>                                                      
+                        <Text color='black'>{ele.productDescription}</Text> 
                     </Box>
-                    <Text style={{color : 'black'}}>Base Price : {ele.basePrice}</Text>
-                    <Button onClick={()=>{localDel(ele.index)}} style={{display:'inline-block'}}>Delete</Button>
-                </Group>
-            </div>)}
+                    <Box>
+                        <Text style={{color : 'black'}}>Base Price : {ele.basePrice}</Text>
+                        <Button onClick={()=>{localDel(ele.index)}} style={{display:'inline-block'}}>Delete</Button>
+                    </Box>
+                </Grid>
+            </Box>)}
+
+            
+
+           
             <div style={{textAlign : 'center'}}>
                 <Button style={{backgroundColor : '#821d2e' ,marginBottom : '50px'}} onClick={()=>CreateAuction()}><Text style={{color:'white'}}>Create Auction</Text></Button>
             </div>
