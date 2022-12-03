@@ -120,21 +120,18 @@ function CreateAuction() {
                     </Center>
                 </div>
             </Modal>
-            {localProd.map((ele)=><Box>
+            {localProd.map((ele)=><Box style={{backgroundColor:'#4db6ab', marginBottom : '12px', borderRadius:'2rem'}}>
                 <Grid justify='space-between'>
-                    <Box>
+                    <Box style={{paddingLeft: '30px'}}>
                         <h2><Text color="black">{ele.productName}</Text></h2>
                         <Text color='black'>{ele.productDescription}</Text> 
                     </Box>
-                    <Box>
-                        <Text style={{color : 'black'}}>Base Price : {ele.basePrice}</Text>
-                        <Button onClick={()=>{localDel(ele.index)}} style={{display:'inline-block'}}>Delete</Button>
-                    </Box>
+                    <Stack align="flex-end" style={{margin : '20px', padding : '7px'}}>
+                        <Text style={{color : 'black'}}>Base Price : ₹{ele.basePrice}</Text>
+                        <Button onClick={()=>{localDel(ele.index)}} style={{display:'inline-block', backgroundColor:'#821d2e', width:'90px'}}><Text style={{color:'white'}}>Delete</Text></Button>
+                    </Stack>
                 </Grid>
             </Box>)}
-
-            
-
            
             <div style={{textAlign : 'center'}}>
                 <Button style={{backgroundColor : '#821d2e' ,marginBottom : '50px'}} onClick={()=>CreateAuction()}><Text style={{color:'white'}}>Create Auction</Text></Button>
