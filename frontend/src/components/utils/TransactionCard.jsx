@@ -1,4 +1,4 @@
-import { Button, Grid } from '@mantine/core'
+import { Box, Button, Grid, Stack, Text } from '@mantine/core'
 import React from 'react'
 
 function TransactionCard(props) {

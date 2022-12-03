@@ -5,6 +5,7 @@ import { DatePicker, DateRangePicker } from '@mantine/dates';
 import { useRef } from 'react';
 import { useCallback } from 'react';
 import axios from 'axios';
+import { IconTrash } from '@tabler/icons';
 
 function CreateAuction() {
 
@@ -128,7 +129,7 @@ function CreateAuction() {
                     </Box>
                     <Stack align="flex-end" style={{margin : '20px', padding : '7px'}}>
                         <Text style={{color : 'black'}}>Base Price : ₹{ele.basePrice}</Text>
-                        <Button onClick={()=>{localDel(ele.index)}} style={{display:'inline-block', backgroundColor:'#821d2e', width:'90px'}}><Text style={{color:'white'}}>Delete</Text></Button>
+                        <Button onClick={()=>{localDel(ele.index)}} style={{display:'inline-block', backgroundColor:'#821d2e'}}><IconTrash/></Button>
                     </Stack>
                 </Grid>
             </Box>)}</SimpleGrid>
