@@ -1,4 +1,4 @@
-import { Box,Text } from '@mantine/core'
+import { Box,SimpleGrid,Text } from '@mantine/core'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
@@ -32,11 +32,11 @@ function Transactions() {
 
 
   return (
-    <Box>
-      {data.map((ele)=><TransactionCard key={ele['productName']} productName={ele['productName']} seller={ele['soldBy']} soldPrice={ele['soldAt']} buyer={ele['soldTo']}/>)}
+    <SimpleGrid cols={3}>
+      {data.map((ele)=><TransactionCard key={ele['productName']} tid={ele['transactionHash']} productName={ele['productName']} seller={ele['soldBy']} soldPrice={ele['soldAt']} buyer={ele['soldTo']}/>)}
 
        
-    </Box>
+    </SimpleGrid>
   )
 }
 
