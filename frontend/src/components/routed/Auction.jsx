@@ -54,7 +54,7 @@ console.log( pdata , 'data')
         <h1 style={{color : '#00867c' , textAlign : 'center'}}>{data['auctionName']}</h1>
         <Text p='md' color='#000d0c'>{data['auctionDescription']}</Text>
         <Text color='#000d0c'p='md' style={{textAlign:'center'}} variant='filled'>Ends At : {data['endDate']}</Text>
-        {pdata.map((ele)=><ProductCard name={ele['productName']} price={ele['basePrice']} desc={ele['productDescription']}  />)}
+        {pdata.map((ele)=><ProductCard aid={ele['auctionId']} pid={ele['productId']} name={ele['productName']} price={ele['basePrice']} desc={ele['productDescription']}  />)}
         {/* <ProductCard name='NANNA' price='34' desc='lorem scvbsvb'  /> */}
     </Box>
   )
