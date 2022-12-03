@@ -44,10 +44,10 @@ if(loading){
 }
 console.log(data , 'data')
     return (
-    <Box style={{backgroundColor : 'orange' , padding : '20px' }}>
-        <h1 style={{color : 'red' , textAlign : 'center'}}>{data['auctionName']}</h1>
-        <Text p='md'>{data['auctionDescription']}</Text>
-        <Text color='white'p='md' style={{textAlign:'center'}} variant='filled'>Ends At : {data['endDate']}</Text>
+    <Box style={{backgroundColor : '#C7D6D4' , padding : '20px' }}>
+        <h1 style={{color : '#00867c' , textAlign : 'center'}}>{data['auctionName']}</h1>
+        <Text p='md' color='#000D0C'>{data['auctionDescription']}</Text>
+        <Text color='#000D0C'p='md' style={{textAlign:'center'}} variant='filled'>Ends At : {data['endDate']}</Text>
         <ProductCard name='NANNA' price='34' desc='lorem scvbsvb'  />
     </Box>
   )

@@ -1,13 +1,13 @@
 .active{
-    color : white;
+    color : #C7D6D4;
     text-decoration : none;
     font-weight : 800;
-    background-color : rgba(10, 99, 34, 0.7);
+    background-color : #035e6c;
     padding : 10px 10px;
     border-radius : 20px;
 }
 .inactive{
-    color : rgb(169, 163, 163);
+    color : #000D0C;
     text-decoration : none;
     font-weight : 800;
     padding : 0% 0%;

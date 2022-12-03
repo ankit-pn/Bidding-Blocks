@@ -75,7 +75,7 @@ function NavBar() {
 
   return (
     <Box style={{
-      backgroundColor : 'rgba(14, 45, 50,1)',
+      backgroundColor : '#4db6ab',
       margin : '0' , 
       padding : '13px',
       width : '100%',
@@ -119,7 +119,7 @@ function NavBar() {
         <Logo />
 
         {data.map((ele)=><Btn text={ele.text} key={ele.to} to={ele.to} />) }
-        {!localStorage.getItem('user') ?  <Button onClick={()=>setOpened(true)}><Text style={{color:'white'}}>Login</Text></Button> : <Button onClick={()=>{handleLogout()}}>Logout</Button>}
+        {!localStorage.getItem('user') ?  <Button style={{backgroundColor:'#821d2e'}} onClick={()=>setOpened(true)}><Text style={{color:'white'}}>Login</Text></Button> : <Button style={{backgroundColor:'#821d2e'}} onClick={()=>{handleLogout()}}><Text style={{color:'white'}}>Logout</Text></Button>}
       </Flex>
     </Box>
   )
