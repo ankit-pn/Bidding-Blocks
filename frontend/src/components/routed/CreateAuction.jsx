@@ -28,17 +28,17 @@ function CreateAuction() {
                 productArray : localProd
 
             }
-            // const resp = await axios.post('https://product-api-six.vercel.app/addAuction', payload)
-            // if(resp.status == 201){
-            //     setName('')
-            //     setDesc('')
-            //     setHost('')
-            //     setValueN('')
-            //     setValueD('')
-            //     // Pref.current.value = ''
-            //     setValueDate([new Date(),new Date()])
-            //     setLocalProd([])
-            // }
+            const resp = await axios.post('https://product-api-six.vercel.app/addAuction', payload)
+            if(resp.status == 201){
+                setName('')
+                setDesc('')
+                setHost('')
+                setValueN('')
+                setValueD('')
+                // Pref.current.value = ''
+                setValueDate([new Date(),new Date()])
+                setLocalProd([])
+            }
             
             // console.log(resp , 'payload')
             console.log(payload)
@@ -120,21 +120,18 @@ function CreateAuction() {
                     </Center>
                 </div>
             </Modal>
-            {localProd.map((ele)=><Box>
+            {localProd.map((ele)=><Box style={{backgroundColor:'#4db6ab', marginBottom : '12px', borderRadius:'2rem'}}>
                 <Grid justify='space-between'>
-                    <Box>
+                    <Box style={{paddingLeft: '30px'}}>
                         <h2><Text color="black">{ele.productName}</Text></h2>
                         <Text color='black'>{ele.productDescription}</Text> 
                     </Box>
-                    <Box>
-                        <Text style={{color : 'black'}}>Base Price : {ele.basePrice}</Text>
-                        <Button onClick={()=>{localDel(ele.index)}} style={{display:'inline-block'}}>Delete</Button>
-                    </Box>
+                    <Stack align="flex-end" style={{margin : '20px', padding : '7px'}}>
+                        <Text style={{color : 'black'}}>Base Price : ₹{ele.basePrice}</Text>
+                        <Button onClick={()=>{localDel(ele.index)}} style={{display:'inline-block', backgroundColor:'#821d2e', width:'90px'}}><Text style={{color:'white'}}>Delete</Text></Button>
+                    </Stack>
                 </Grid>
             </Box>)}
-
-            
-
            
             <div style={{textAlign : 'center'}}>
                 <Button style={{backgroundColor : '#821d2e' ,marginBottom : '50px'}} onClick={()=>CreateAuction()}><Text style={{color:'white'}}>Create Auction</Text></Button>
