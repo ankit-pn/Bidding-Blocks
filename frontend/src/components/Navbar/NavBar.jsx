@@ -96,7 +96,7 @@ function NavBar() {
           {log ? <>
                 <TextInput label='Email' required value={valueE} onChange={(event) => setValueE(event.currentTarget.value)}/>
                 <PasswordInput label='Password' required value={valueP} onChange={(event) => setValueP(event.currentTarget.value)}/>
-                <Center><Text size='sm'>Don't have account ? <UnstyledButton style={{fontSize : '0.8rem' , color:'red'}} onClick={()=>{setValueE('');
+                <Center><Text mt='sm' size='sm' color='black'>Don't have account ? <UnstyledButton style={{fontSize : '0.8rem' , color:'red'}} onClick={()=>{setValueE('');
     setValueN('');
     setValueP('');setLog(false)}}>Register</UnstyledButton></Text></Center>
                 <Center><Button m='md' onClick={()=>handleLogin()}><Text style={{color:'white'}}>Login</Text></Button></Center>
@@ -105,7 +105,7 @@ function NavBar() {
             <TextInput label='Name' required value={valueN} onChange={(event) => setValueN(event.currentTarget.value)} />
             <TextInput label='Email' required value={valueE} onChange={(event) => setValueE(event.currentTarget.value)}/>
             <PasswordInput label='Password' required value={valueP} onChange={(event) => setValueP(event.currentTarget.value)}/>
-            <Center><Text size='sm'>Already have an account ? <UnstyledButton style={{fontSize : '0.8rem' , color:'red'}} onClick={()=>{setValueE('')
+            <Center><Text size='sm' mt='sm' color='black'>Already have an account ? <UnstyledButton style={{fontSize : '0.8rem' , color:'red'}} onClick={()=>{setValueE('')
     setValueN('');
     setValueP('');setLog(true)}}>Login</UnstyledButton></Text></Center>
 
@@ -120,7 +120,7 @@ function NavBar() {
         <Logo />
 
         <Group>{data.map((ele)=><Btn text={ele.text} key={ele.to} to={ele.to} />) }</Group>
-        {!localStorage.getItem('user') ?  <Button style={{backgroundColor:'#821d2e'}} onClick={()=>setOpened(true)}><Text style={{color:'white'}}>Login</Text></Button> : <Button style={{backgroundColor:'#821d2e'}} onClick={()=>{handleLogout()}}><Text style={{color:'white'}}>Logout</Text></Button>}
+        {!localStorage.getItem('user') ?  <Button style={{backgroundColor:'#821d2e' , position : 'relative' , top : '18px' , right : '20px'}} onClick={()=>setOpened(true)}><Text style={{color:'white'}}>Login</Text></Button> : <Button style={{backgroundColor:'#821d2e', position : 'relative' , top : '18px' , right : '20px'}} onClick={()=>{handleLogout()}}><Text style={{color:'white'}}>Logout</Text></Button>}
       </Flex>
     </Box>
   )

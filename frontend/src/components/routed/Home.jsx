@@ -61,13 +61,13 @@ function Home() {
   
 
   if(load){
-    return (<center><div style={{backgroundColor : '#821d2e', margin: '5% 30%', padding : '20px 30px'}}><h2 style={{color : 'white'}}>Loading...</h2></div></center>)
+    return(<Box m={0} pt={50} style={{backgroundColor : '#C7D6D4' , minHeight : '90vh'}}><h1 style={{color : 'black' ,textAlign : 'center'}}>Loading...</h1></Box>)
   }
   return (
     <Box p='md' m={0} style={{backgroundColor : '#C7D6D4' , color : '#ecb365' , minHeight : '90vh'}}>
       <Title order={1} style={{textAlign:'center', color:'black'}}>Auctions</Title> 
       
-      {<SimpleGrid cols={3}>
+      {<SimpleGrid  cols={3}>
       {auctions.map((ele)=>{console.log(ele , 'ELE')
       return <AuctionDetailCard type={1} key={ele['auctionId']} id={ele['auctionId']} host={ele['auctionHost']} status={ele['Status']} name={ele['auctionName']} desc={ele['auctionDescription']} endDate={ele['endDate']}  />})}
       </SimpleGrid>}

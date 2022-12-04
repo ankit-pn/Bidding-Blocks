@@ -14,7 +14,7 @@ function Footer() {
             
             
         }}>
-            <pre p='md' style={{color : 'rgb(173, 162, 162)'}}> Team Code Geass  |  Version Beta 5.0 | Bidding Blocks</pre> 
+            <pre p='md' style={{color :'white'}}> Team Code Geass  |  Version Beta 5.0  |  Bidding Blocks</pre> 
         </Box>
       )
 }

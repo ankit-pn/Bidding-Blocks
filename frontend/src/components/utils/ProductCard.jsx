@@ -3,7 +3,7 @@ import { Notification } from '@mantine/core';
 import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
-import { IconX } from '@tabler/icons';
+import { IconX , IconCheck} from '@tabler/icons';
 import { Icon } from '@iconify/react';
 
 function ProductCard(props) {
@@ -13,7 +13,7 @@ function ProductCard(props) {
     const [uid , setuid] = useState(!localStorage.getItem('user') ? true : false)
     const [connected , setConnected] = useState(false)
     const [bidValue , setBidValue] = useState(Number(props.price))
-    const [msg , setMsg] = useState('')
+    const [msg , setMsg] = useState({msg : '' , color : 'red'})
 
 
     const handleConnect = async () =>{
@@ -28,18 +28,18 @@ function ProductCard(props) {
               }
           }
           else{
-            setMsg('Please install Metamask extension to use this Dapp')
+            setMsg({msg : 'Please install Metamask extension to use this Dapp' , color : 'red'})
             setTimeout(() => {
-              setMsg('')
+              setMsg({msg : '' , color : 'red'})
             }, 4000);
           }
       }
       else{
-        setMsg('Disconnected Successfully!!!')
+        setMsg({msg : 'Disconnected Successfully!!!' , color : 'green'})
         setConnected(null)
 
         setTimeout(() => {
-          setMsg('')
+          setMsg({msg : '' , color : 'red'})
         }, 3000);
       }
   }
@@ -47,11 +47,12 @@ function ProductCard(props) {
     const handleBid = async()=>{
         console.log('Handle BId' , bidValue)
 
+
         for (const x of props.bids){
           if(x[0] == localStorage.getItem('user')){
-            setMsg('You can only bid once per product of any particular auction to ensure fair practices')
+            setMsg({msg :'You can only bid once per product of any particular auction to ensure fair practices' , color : 'red'})
             setTimeout(() => {
-              setMsg('')
+              setMsg({msg : '' , color : 'red'})
               
             }, 5000);
             return;
@@ -79,12 +80,16 @@ function ProductCard(props) {
             bid : bidValue
           })
           setOpened(0)
+          setMsg({msg : 'Successfully Bid on the Product , Congrats !!!' , color : 'green'})
+          setTimeout(() => {
+            setMsg({msg : '' , color : 'red'})
+          }, 5000);
 
         }
         else{
-          setMsg('Some error occured!')
+          setMsg({msg : 'Some error occured!' , color : 'red'})
           setTimeout(() => {
-            setMsg('')
+            setMsg({msg : '' , color : 'red'})
           }, 3000);
         }
     }
@@ -105,7 +110,8 @@ function ProductCard(props) {
 
         <Text mx='md' style={{color:'white', marginBottom:'20px'}}>{props.desc}</Text>
 
-        {msg.length > 0 && <Affix position={{ bottom: 20, right: 20 }}><Notification icon={<IconX size={18} />} color="red"><Text>{msg}</Text></Notification></Affix>}
+        {msg['msg'].length > 0 && <Affix position={{ bottom: 20, right: 20 }}>
+          <Notification color={msg['color']}><Text>{msg['msg']}</Text></Notification></Affix>}
         <Modal  
         opened={opened}
         onClose={() => setOpened(false)}

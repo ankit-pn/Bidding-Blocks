@@ -15,7 +15,7 @@ function TransactionCard(props) {
                 <Text style={{color : 'black'}}>Bought By : {props.buyer}</Text>
             </Stack>
         </Grid>
-        <center><Button style={{backgroundColor:'#b64d57', marginBottom : '10px'}} onClick = {()=> window.open(`https://goerli.etherscan.io/tx/${props.tid}`, '_blank', 'noopener,noreferrer')} ><Text style={{color:'white'}}>Verification Signature</Text></Button></center>
+        <center><Button style={{backgroundColor:'#b64d57', marginBottom : '10px'}} onClick = {()=> window.open(`https://goerli.etherscan.io/tx/${props.tid}`, '_blank', 'noopener,noreferrer')} ><Text style={{color:'white'}}>Verify Signature</Text></Button></center>
     </Box>
   )
 }
