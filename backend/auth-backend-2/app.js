@@ -44,9 +44,11 @@ app.post("/register/user", (request, response) => {
     .hash(request.body.password, 10)
     .then((hashedPassword) => {
       // create a new user instance and collect the data
+
+      console.log(request.body);
       const user = new User({
         userId: request.body.userId,
-        email: request.body.email,
+        name: request.body.name,
         password: hashedPassword,
         productIds: [],
         auctionIds: []
@@ -63,7 +65,7 @@ app.post("/register/user", (request, response) => {
         })
         // catch error if the new user wasn't added successfully to the database
         .catch((error) => {
-          response.status(500).send({
+          response.status(506).send({
             message: "Error creating user",
             error,
           });
@@ -118,10 +120,10 @@ app.post("/register/admin", (request, response) => {
 });
 
 app.post("/login/user", (request, response) => {
-  // check if email exists
+  // check if name exists
   User.findOne({ userId: request.body.userId })
 
-    // if email exists
+    // if name exists
     .then((user) => {
       // compare the password entered and the hashed password found
       bcrypt
@@ -139,20 +141,11 @@ app.post("/login/user", (request, response) => {
           }
 
           //   create JWT token
-          const token = jwt.sign(
-            {
-              userId: user._id,
-              userEmail: user.email,
-            },
-            "RANDOM-TOKEN",
-            { expiresIn: "24h" }
-          );
 
           //   return success response
           response.status(200).send({
             message: "Login Successful",
             userId: user.userId,
-            token,
           });
         })
         // catch error if password does not match
@@ -163,7 +156,7 @@ app.post("/login/user", (request, response) => {
           });
         });
     })
-    // catch error if email does not exist
+    // catch error if name does not exist
     .catch((e) => {
       response.status(404).send({
         message: "UserId not found",
@@ -175,10 +168,10 @@ app.post("/login/user", (request, response) => {
 // login endpoint
 
 app.post("/login/admin", (request, response) => {
-  // check if email exists
+  // check if name exists
   Admin.findOne({ adminId: request.body.adminId })
 
-    // if email exists
+    // if name exists
     .then((admin) => {
       // compare the password entered and the hashed password found
       bcrypt
@@ -199,7 +192,7 @@ app.post("/login/admin", (request, response) => {
           const token = jwt.sign(
             {
               adminId: admin._id,
-              adminEmail: admin.email,
+              adminEmail: admin.name,
             },
             "RANDOM-TOKEN",
             { expiresIn: "24h" }
@@ -220,7 +213,7 @@ app.post("/login/admin", (request, response) => {
           });
         });
     })
-    // catch error if email does not exist
+    // catch error if name does not exist
     .catch((e) => {
       response.status(404).send({
         message: "Admin not found",
