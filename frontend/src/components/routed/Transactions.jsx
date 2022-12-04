@@ -1,4 +1,4 @@
-import { Box,SimpleGrid,Text } from '@mantine/core'
+import { Box,SimpleGrid,Text, Title } from '@mantine/core'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
@@ -23,7 +23,25 @@ function Transactions() {
       console.log(resp.data.bidDetails)
     }
 
-    fetchData()
+    async function fetchDataforAll(){
+      
+      const resp = await axios.post('https://bid-data-smart-contract.samualsaul.repl.co/getAllWinBid',{
+        aid : 'all'
+      })
+
+      setData(resp.data.bidDetails)
+      setLoading(false)
+
+      console.log(resp.data.bidDetails)
+    }
+
+
+    if(localStorage.getItem('user')){
+      fetchData()
+    }
+    else{
+      fetchDataforAll()
+    }
   },[])
 
   if(loading){
@@ -32,11 +50,15 @@ function Transactions() {
 
 
   return (
-    <SimpleGrid cols={3}>
+    <Box>
+      {localStorage.getItem('user') ? <Title m='md' style={{textAlign : 'center'}} order={1} color='#035E6C'>Your Purchases : </Title>: <Title m='md' style={{textAlign : 'center' , fontFamily : 'Bitter'}} order={1} color='#035E6C'>Viewing All Recent Transactions on Bidding Blocks</Title>}
+
+    <SimpleGrid m='lg' cols={3}>
       {data.map((ele)=><TransactionCard key={ele['productName']} tid={ele['transactionHash']} productName={ele['productName']} seller={ele['soldBy']} soldPrice={ele['soldAt']} buyer={ele['soldTo']}/>)}
 
        
     </SimpleGrid>
+    </Box>
   )
 }
 
