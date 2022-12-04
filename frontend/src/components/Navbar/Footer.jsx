@@ -1,5 +1,6 @@
-import { Box, Flex, Text } from '@mantine/core'
+import { Box, Flex, Image, Text } from '@mantine/core'
 import React from 'react'
+
 
 function Footer() {
     return (
@@ -13,7 +14,7 @@ function Footer() {
             
             
         }}>
-            <pre p='md' style={{color : 'rgb(173, 162, 162)'}}>Team Code Geass  |  Version Beta 5.0 </pre> 
+            <pre p='md' style={{color : 'rgb(173, 162, 162)'}}> Team Code Geass  |  Version Beta 5.0 | Bidding Blocks</pre> 
         </Box>
       )
 }

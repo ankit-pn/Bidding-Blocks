@@ -78,7 +78,7 @@ function NavBar() {
     <Box style={{
       backgroundColor : '#4db6ab',
       margin : '0' , 
-      padding : '13px',
+      padding : '5px',
       width : '100%',
       position : 'sticky' , 
       top : 0,

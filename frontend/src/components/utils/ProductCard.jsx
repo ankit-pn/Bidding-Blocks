@@ -90,6 +90,8 @@ function ProductCard(props) {
     }
 
 
+    console.log(localStorage.getItem('admin'))
+
   return (
     <Box style={{backgroundColor : '#00867c', justifyItems  : 'flex-end' , borderRadius : '10px' , margin : '10px 10px' , padding : '10px 10px'}}>
 

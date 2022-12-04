@@ -22,8 +22,10 @@ function Home() {
       setLoad(0)
 
       var winner = []
+      var dd = new Date()
+      dd.toISOString().slice(0,10)
       for(const y of resp.data.approvedAuction){
-        if(!y['isProcessed'] && y['endDate'] > new Date().toISOString().slice(0,10)){
+        if(!y['isProcessed'] && y['endDate'] > dd){
           for(const pid of y['productIds']){
               const resp = await axios.post('https://product-api-six.vercel.app/getWinner',{
                 productId : pid

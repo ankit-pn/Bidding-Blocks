@@ -19,13 +19,26 @@ function CreateAuction() {
     }
 
     const CreateAuction = async()=>{
+
+            var st = '';
+            if( valueDate[0].toISOString().slice(0,10) <= new Date().toISOString().slice(0,10)){
+                if(valueDate[1].toISOString().slice(0,10) <= new Date().toISOString().slice(0,10)){
+                    st = 'LIVE'
+                }
+                else{
+                    st = 'Expired'
+                }
+            }else{
+                st = 'Upcoming'
+            }
+
             const payload = {
                 auctionName : Name,
                 auctionDescription : Desc,
                 startDate : valueDate[0].toISOString().slice(0,10),
                 endDate : valueDate[1].toISOString().slice(0,10),
-                auctionHost : Host,
-                Status : 'Upcoming',
+                auctionHost : localStorage.getItem('user').split('@')[0],
+                Status : st,
                 productArray : localProd
 
             }
