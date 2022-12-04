@@ -87,5 +87,17 @@ app.post("/getBidDetails", async (req, res) => {
     );
 });
 
+app.post("/getTransactionDetailsByUser", async (req, res) => {
+    const userId = req.body.userId;
+    await getBidDetails(user).then((result) => {
+        res.json(result);
+    }).catch(
+        (err)=>{
+            // console.log(user);
+            console.log(err);
+        }
+    );
+});
+
 
 module.exports = app;
