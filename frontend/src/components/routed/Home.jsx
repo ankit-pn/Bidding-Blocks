@@ -4,6 +4,7 @@ import axios from 'axios'
 import React from 'react'
 import { useState , useEffect} from 'react'
 import AuctionDetailCard from '../utils/AuctionDetailCard'
+import LandingPage from '../utils/LandingPage'
 
 
 
@@ -64,7 +65,8 @@ function Home() {
     return(<Box m={0} pt={50} style={{backgroundColor : '#C7D6D4' , minHeight : '90vh'}}><h1 style={{color : 'black' ,textAlign : 'center'}}>Loading...</h1></Box>)
   }
   return (
-    <Box p='md' m={0} style={{backgroundColor : '#C7D6D4' , color : '#ecb365' , minHeight : '90vh'}}>
+    <Box p='md' m={0} style={{backgroundColor : '#C7D6D4' , color : '#ecb365' , minHeight : '180vh'}}>
+      <LandingPage/>
       <Title order={1} style={{textAlign:'center', color:'black'}}>Auctions</Title> 
       
       {<SimpleGrid  cols={3}>

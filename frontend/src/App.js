@@ -9,7 +9,6 @@ import Transactions from './components/routed/Transactions';
 import Auctions from './components/routed/Auctions';
 import CreateAuction from './components/routed/CreateAuction';
 import Auction from './components/routed/Auction';
-import { AuthenticationImage } from './admin/Adminpanel';
 import Login from './admin/Login'; 
 import AdminPending from './admin/AdminPending';
 
